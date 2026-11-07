@@ -1,0 +1,83 @@
+/* ==UserStyle==
+@name           Youtube
+@namespace      github.com/iztiev/stylus
+@version        1.1.0
+@description    YouTube tweaks: full titles, no overlays/captions/miniplayer, no Shorts shelves
+@author         iztiev
+@homepageURL    https://github.com/iztiev/stylus
+@updateURL      https://raw.githubusercontent.com/iztiev/stylus/main/youtube.user.css
+@license        MIT
+==/UserStyle== */
+
+@-moz-document domain("youtube.com"), domain("youtu.be") {
+    /* Insert code here... */
+    ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+    #video-title.ytd-rich-grid-media,
+    .ytLockupMetadataViewModelStandard.ytLockupMetadataViewModelRichGridLegacyTypography .ytLockupMetadataViewModelTitle {
+        max-height: 44rem;
+        -webkit-line-clamp: 20;
+    }
+    
+    #video-title.ytd-compact-video-renderer,
+    .yt-lockup-metadata-view-model-wiz--compact .yt-lockup-metadata-view-model-wiz__title,
+    .yt-lockup-metadata-view-model--compact .yt-lockup-metadata-view-model__title,
+    .ytLockupMetadataViewModelCompact .ytLockupMetadataViewModelTitle,
+    .ytLockupMetadataViewModelCompact.ytLockupMetadataViewModelTitleMaxLines3 .ytLockupMetadataViewModelTitle {
+        max-height: 40rem;
+        -webkit-line-clamp: 20;
+    }
+    
+    .ytInlinePlayerControlsTopRightControls {
+        display: none;
+    }
+
+    /* Disable CC */
+    /*
+    .ytp-caption-window-container {
+        display: none;
+    }
+    */
+    
+    .ytp-timely-actions-overlay,
+    .ytd-statement-banner-renderer {
+        display: none;
+    }
+    
+    .ytp-overlays-container {
+        display: none;
+    }
+    
+    .ytp-ce-size-346,
+    .ytp-ce-size-426,
+    .ytp-ce-size-470,
+    .ytp-ce-size-506,
+    .ytp-ce-size-570,
+    .ytp-ce-size-640,
+    .ytp-ce-size-853,
+    .ytp-ce-size-1280,
+    .ytp-ce-size-1920 {
+        display: none;
+    }
+    
+    .ytd-rich-item-renderer .ytd-rich-grid-media ytd-thumbnail #hover-overlays {
+        display: none;
+    }
+    
+    ytd-miniplayer,
+    .ytdMiniplayerComponentVisible {
+        display: none;
+    }
+    
+    /* disable shorts, people watched and explore more in search */
+    grid-shelf-view-model.ytd-item-section-renderer.ytGridShelfViewModelHost,
+    ytd-shelf-renderer.ytd-item-section-renderer.style-scope,
+    ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope:nth-of-type(1), 
+    ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope:nth-of-type(2), 
+    ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope:nth-of-type(3),
+    ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope:nth-of-type(4),
+    ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope,
+    ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope,
+    ytd-horizontal-card-list-renderer.ytd-item-section-renderer.style-scope {
+        display:none;
+    }
+}
